@@ -29,32 +29,23 @@ public:
            vector<int>v1;
             level++;
             if(depth-1==level)
-            {
-                // cout<<level;
-                for(int i=0;i<n;i++)
+            { for(int i=0;i<n;i++)
                 {
                     cout<<i<<" ";
                     TreeNode *cu=q.front();
                     q.pop();
-                    
-                    // if(cu->left)
-                    // {
-                        TreeNode *no1=new TreeNode(val,cu->left,NULL);
+                     TreeNode *no1=new TreeNode(val,cu->left,NULL);
                         cu->left=no1;
-                    // }
-                     // if(cu->right)
-                    // {
-                        TreeNode *no2=new TreeNode(val,NULL,cu->right);
+                     TreeNode *no2=new TreeNode(val,NULL,cu->right);
                         cu->right=no2;
-                    // }
-                    if(!cu->left&&!cu->right)
-                    {
-                        TreeNode *n1=new TreeNode(val,NULL,NULL);
-                        TreeNode *n2=new TreeNode(val,NULL,NULL);
+//                   if(!cu->left&&!cu->right)
+//                     {
+//                         TreeNode *n1=new TreeNode(val,NULL,NULL);
+//                         TreeNode *n2=new TreeNode(val,NULL,NULL);
                           
-                        cu->left=n1;
-                        cu->right=n2;
-                    }
+//                         cu->left=n1;
+//                         cu->right=n2;
+//                     }
                 }
                 return root;
             }
