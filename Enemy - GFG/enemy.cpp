@@ -10,7 +10,7 @@ using namespace std;
 class Solution
 {
     public:
-       int largestArea(int n,int m,int k,vector<vector<int>> &e)
+        int largestArea(int n,int m,int k,vector<vector<int>> &e)
 
         {
 
