@@ -10,34 +10,24 @@ using namespace std;
 
 class Solution{
     public:
-    int removals(vector<int>& arr, int k){
-
-        sort(arr.begin(),arr.end());
-
-        int i=0,j=0;
-
-        int ans=0;
-
-        for(int i=0;i<arr.size();i++)
-
-        {
-
-            while(arr[i]-arr[j]>k)
-
-            {
-
-                j++;
-
-            }
-
-            ans=max(ans,i-j+1);
-
-        }
-
+    int removals(vector<int>& a, int k){
+        //Code here
+         int n = a.size();
+        sort(a.begin(), a.end());
         
-
-        return arr.size()-ans;
-
+        int l=0, r=0, maxlen=0;
+        
+        while(r<n){
+            if(a[r]-a[l] <= k){
+                r++;
+                maxlen = max(maxlen, r-l);
+            }
+            else{
+                l++;
+            }
+        }
+        
+        return n-maxlen;
     }
 };
 
