@@ -9,9 +9,9 @@ using namespace std;
 
 class Solution{
 public:
-
     vector<int> minPartition(int N)
     {
+        // code here
         int notes[10] = { 1, 2, 5, 10, 20, 50, 100, 200, 500, 2000};
          
         
