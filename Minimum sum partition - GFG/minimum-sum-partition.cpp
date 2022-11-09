@@ -4,9 +4,7 @@ using namespace std;
 
 // } Driver Code Ends
 class Solution{
-
-  public:
-	 vector<int> SubSet(int arr[], int sum,int n){
+ vector<int> SubSet(int arr[], int sum,int n){
         vector<vector<bool>> ans(n + 1, vector<bool>(sum + 1));
         for (int i = 0; i < n + 1; i++){
             ans[i][0] = true;
@@ -43,7 +41,7 @@ class Solution{
         }
     
         return ans;
-	}  
+	} 
 };
 
 
