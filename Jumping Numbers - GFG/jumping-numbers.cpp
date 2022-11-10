@@ -8,7 +8,7 @@ class Solution {
     long long jumpingNums(long long X) {
         // code here
         if (X <= 9)
-        return X;
+  return X;
 
 queue<long long> q;
 // 1 - 9 are jumping numbers we know (so insert them in queue)
@@ -35,8 +35,7 @@ while (!q.empty())
     if (num1 <= X)
       q.push(num1);
   }
-  else 
-  if (last == 9)
+  else if (last == 9)
   {
     // in case of say 89: we will get 900 (invalid) from num1, and 898 from num2, so checking num2 only
     if (num2 <= X)
