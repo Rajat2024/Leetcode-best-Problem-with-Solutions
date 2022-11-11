@@ -1,13 +1,21 @@
 class Solution {
 public:
 
-    string baseNeg2(int n) {
-         string str="";
-        while(n)
-        {
-            str=to_string(n&1)+str;
-            n=-(n>>1);
+    string base2(int N) {
+        string res = "";
+        while (N) {
+            res = to_string(N & 1) + res;
+            N = N >> 1;
         }
-        return str==""?"0":str;
+        return res == ""  ? "0" : res;
+    }
+
+    string baseNeg2(int N) {
+        string res = "";
+        while (N) {
+            res = to_string(N & 1) + res;
+            N = -(N >> 1);
+        }
+        return res == "" ? "0" : res;
     }
 };
