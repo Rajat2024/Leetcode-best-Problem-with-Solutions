@@ -6,7 +6,8 @@ using namespace std;
 // } Driver Code Ends
 // User function Template for C++
 class Solution {
-   bool isprime(int n)
+public:
+      bool isprime(int n)
     {
         if(n<2)
         return false;
