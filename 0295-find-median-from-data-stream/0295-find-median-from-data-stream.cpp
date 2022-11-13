@@ -12,23 +12,17 @@ class MedianFinder
             small.push(num);
         else
             large.push(num);
-       	// 1>1
 
         if (small.size() > (large.size() + 1))
         {
-
             large.push(small.top());
             small.pop();
         }
         else
+        if (large.size() > small.size())
         {
-            // cout << "Yes";
-            // 0<1
-            if (large.size() > small.size())
-            {
-                small.push(large.top());
-                large.pop();
-            }
+            small.push(large.top());
+            large.pop();
         }
     }
 
