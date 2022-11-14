@@ -17,10 +17,7 @@ public:
                 k=0;
                 for(int j=0;j<S.size() && k<W.size();j++) {
                     if(S[j]==W[k])
-                    { 
-                        S[j]='@';
-                        k++; 
-                    }
+                    { S[j]='@'; k++; }
                 }
                 if(k==W.size()) c++;
             }
