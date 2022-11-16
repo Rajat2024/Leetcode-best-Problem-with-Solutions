@@ -12,7 +12,7 @@ class Solution{
 public:
 	// #define ll long long
 
-	ll countSubarray(int arr[], int n, int k) 
+ll countSubarray(int arr[], int n, int k) 
 {
     long long count=0;
 	long long res=0;
