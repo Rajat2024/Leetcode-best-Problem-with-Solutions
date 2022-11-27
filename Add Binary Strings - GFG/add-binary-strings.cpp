@@ -7,7 +7,7 @@ using namespace std;
 //User function template for C++
 class Solution{
 public:	
-		string addBinary(string a, string b)
+	string addBinary(string a, string b)
 	{
 	    // your code here
 	     int i = a.size()-1;
