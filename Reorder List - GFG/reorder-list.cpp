@@ -36,8 +36,7 @@ struct Node
 class Solution{ 
 public:
     void reorderList(Node* head) {
-        
-        
+        // Your code here
         // 1. First divide the list in two equal part .
         // 2. Then sort the second list .
         // 3. Then Take the first element from first and first element from second array.
@@ -98,7 +97,6 @@ public:
             head2->next = temp1 ;
             head2 = temp2 ;
         }
-        
     }
 };
 
