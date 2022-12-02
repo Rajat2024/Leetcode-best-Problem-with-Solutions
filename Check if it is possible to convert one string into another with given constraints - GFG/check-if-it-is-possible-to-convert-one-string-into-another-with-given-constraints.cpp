@@ -9,7 +9,7 @@ using namespace std;
 
 class Solution {
   public:
-   int isItPossible(string s, string t, int ns, int nt) {
+    int isItPossible(string s, string t, int ns, int nt) {
         // code here
            // code here
         int i=0,j=0;
