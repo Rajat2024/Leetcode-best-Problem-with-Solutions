@@ -6,7 +6,7 @@ using namespace std;
 class Solution {
   public:
     bool canPair(vector<int> nums, int k) {
-     int cnt = 0, n = nums.size(), start = 0, end = n-1;
+    int cnt = 0, n = nums.size(), start = 0, end = n-1;
         for(auto &i:nums)
             if(i%k == 0)
             cnt++, i = 0;
