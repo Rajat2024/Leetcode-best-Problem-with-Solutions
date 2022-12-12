@@ -8,8 +8,8 @@ using namespace std;
 //User function Template for C++
 
 class Solution {
-    public:
-  void dfs(int node,int parent,vector<int>&vis,vector<int>&tin,vector<int>&low,int &timer,vector<int>adj[],vector<int>&arti){
+  public:
+    void dfs(int node,int parent,vector<int>&vis,vector<int>&tin,vector<int>&low,int &timer,vector<int>adj[],vector<int>&arti){
       vis[node]=1;
       tin[node]=low[node]=timer++;
       int child=0;
