@@ -9,7 +9,7 @@ using namespace std;
 
 class Solution{
 public:
-   bool f(vector<vector<int>> &v, int r, int c) {
+    bool f(vector<vector<int>> &v, int r, int c) {
         if(r < 0 || c < 0 || r >= v.size() || c >= v[0].size()) {
             return 0;
         }
