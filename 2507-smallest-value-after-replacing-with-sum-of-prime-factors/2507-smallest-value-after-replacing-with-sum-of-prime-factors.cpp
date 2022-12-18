@@ -12,7 +12,7 @@ public:
 }
     int ll(int s)
     {
-        cout<<"ll";
+        // cout<<"ll";
         int sum=0;
         while(s%2==0)
             s/=2,sum+=2;
