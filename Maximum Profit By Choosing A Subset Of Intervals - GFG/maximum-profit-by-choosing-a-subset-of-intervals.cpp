@@ -10,35 +10,29 @@ class Solution {
    
   public:
     int maximum_profit(int n, vector<vector<int>> &arr) {
-        // int r
-        int n1=0;
-        for(int i=0;i<n;i++)
+       int n1 = 0;
+        for (int i = 0; i < n; i++)
         {
-            n1=max({arr[i][0],n1,arr[i][1] });
+            n1 = max({arr[i][0], n1, arr[i][1]});
         }
-               long long dp[100001]={0};
-        vector<pair<long long,long long>> adj[n1+1];
-        for(int i=0;i<n;i++)
+        int dp[100001] = {0};
+        vector<pair<int, int>> adj[n1 + 1];
+        for (int i = 0; i < n; i++)
         {
-            
-            long long a=arr[i][0],b=arr[i][1],c=arr[i][2];
-            adj[a].push_back({b,c});
+            int a = arr[i][0], b = arr[i][1], c = arr[i][2];
+            adj[a].push_back({b, c});
         }
-        for(int i=n1-1;i>=0;i--)
+        for (int i = n1 - 1; i >= 0; i--)
         {
-          dp[i]=dp[i+1];
-          for(auto it: adj[i])
-          {
-              dp[i]=max(dp[i],((1ll)*it.second)+dp[it.first]);
-          }
+            dp[i] = dp[i + 1];
+            for (auto it : adj[i])
+            {
+                dp[i] = max(dp[i],  it.second+dp[it.first]);
+            }
         }
-
-   	return dp[0];
-   //end of logic
-
-//   return result;
-
+        return dp[0];
     }
+    
 };
 
 //{ Driver Code Starts.
