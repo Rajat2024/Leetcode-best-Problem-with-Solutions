@@ -2,12 +2,9 @@ class Solution {
 public:
     vector<int> addToArrayForm(vector<int>& num, int k) {
         vector<int>ans(num.size(),0);
-        int carry=0;
         for(int i=num.size()-1;i>=0;i--)
         {
             ans[i]=num[i]+k;
-           
-            k/=10;
             k=ans[i]/10; 
             ans[i]%=10;
         }
