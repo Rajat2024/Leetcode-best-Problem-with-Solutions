@@ -17,7 +17,7 @@ public:
         return dp[target+1000][i]=take+not_take;
     }
     int findTargetSumWays(vector<int>& nums, int target) {
-        dp.resize(3001,vector<int>(nums.size()+1,-1));
+        dp.resize(20*1000,vector<int>(nums.size()+1,-1));
         return rec(nums,target,0);
     }
 };
