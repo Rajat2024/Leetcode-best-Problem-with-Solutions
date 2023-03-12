@@ -1,4 +1,4 @@
-
+//copied
  struct compare {
     bool operator()(const ListNode* l, const ListNode* r) {
         return l->val > r->val;
