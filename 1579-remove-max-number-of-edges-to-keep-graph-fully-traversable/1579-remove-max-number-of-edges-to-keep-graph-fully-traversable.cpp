@@ -1,3 +1,6 @@
+//copied 
+//union find
+
 class Solution {
 public:
     int find(vector<int> &ds, int i) {
