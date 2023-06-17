@@ -44,6 +44,6 @@ class Solution
 public:
     int numOfWays(vector<int> &nums)
     {
-        return (total_required_BST(nums)-1);
+        return total_required_BST(nums)-1;
     }
 };
