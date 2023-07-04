@@ -41,8 +41,8 @@ class Solution
                 if(dis + edgW < dist[adjNode]) {
                     // erase if it was visited previously at 
                     // a greater cost.
-                    if(dist[adjNode] != 1e9) 
-                        st.erase({dist[adjNode], adjNode}); 
+                    // if(dist[adjNode] != 1e9) 
+                    //     st.erase({dist[adjNode], adjNode}); 
                         
                     // If current distance is smaller,
                     // push it into the queue
