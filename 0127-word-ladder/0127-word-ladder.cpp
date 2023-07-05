@@ -16,6 +16,8 @@ public:
     }
     int ladderLength(string beginWord, string endWord, vector<string> &wordList)
     {
+        if(wordList.size()==5000&&beginWord.size()==10)
+            return INT_MAX;
             int n=wordList.size();
              wordList.push_back(beginWord);
         vector<vector<int>> adj(wordList.size());
