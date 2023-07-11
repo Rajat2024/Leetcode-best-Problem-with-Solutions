@@ -1,70 +1,83 @@
 class Solution
 {
 public:
-    bool issequence(string s1, string s2)
+    
+    int ladderLength(string beginWord, string endWord, vector<string> &wordList)
+    {
+
+        map<string, vector<string>> m;
+        map<string, int> dist;
+        int i, j, n = wordList.size(), b;
+        string a;
+
+        // from here
+        for (i = 0; i < n - 1; i++)
+        {
+            for (j = i + 1; j < n; j++)
+            {
+                if (help(wordList[i], wordList[j]))
+                {
+                    m[wordList[i]].push_back(wordList[j]);
+                    m[wordList[j]].push_back(wordList[i]);
+                }
+            }
+        }
+
+        // to here
+        for (i = 0; i < n; i++)
+        {
+            if (help(beginWord, wordList[i]))
+            {
+                m[beginWord].push_back(wordList[i]);
+                m[wordList[i]].push_back(beginWord);
+            }
+        }
+
+        for (i = 0; i < n; i++)
+        {
+            if (help(endWord, wordList[i]))
+            {
+                m[endWord].push_back(wordList[i]);
+                m[wordList[i]].push_back(endWord);
+            }
+            dist[wordList[i]] = INT_MAX;
+        }
+        queue<pair<string, int>> q;
+        q.push({beginWord, 1});
+        dist[beginWord] = 0;
+        while (!q.empty())
+        {
+            a = q.front().first;
+            b = q.front().second;
+            q.pop();
+            cout << a << endl;
+
+            for (string c : m[a])
+            {
+
+                if (dist[c] > b + 1)
+                {
+                    q.push({c, b + 1});
+                    dist[c] = b + 1;
+                }
+            }
+        }
+
+        if (dist[endWord] == INT_MAX)
+            return 0;
+        return dist[endWord];
+    }
+    bool help(string &s1, string &s2)
     {
         int count = 0;
         for (int i = 0; i < s1.length(); i++)
         {
-            if (s1[i] != s2[i] && (count == 0 || count == 1))
+            if (s1[i] != s2[i])
                 count++;
         }
-        if (count != 1)
-            return 0;
+        if (count == 1)
+            return true;
         else
-            return 1;
-    }
-    int ladderLength(string beginWord, string endWord, vector<string> &wordList)
-    {
-        if (wordList.size() == 5000 && beginWord.size() == 10)
-            return INT_MAX;
-        int n = wordList.size();
-        wordList.push_back(beginWord);
-        vector<vector<int>> adj(wordList.size());
-        for (int i = 0; i < wordList.size(); i++)
-        {
-            for (int j = i + 1; j < wordList.size(); j++)
-            {
-                if (issequence(wordList[i], wordList[j]))
-                {
-                    adj[i].push_back(j);
-                    adj[j].push_back(i);
-                }
-            }
-        }
-        int end;
-        for (int i = 0; i < wordList.size(); i++)
-            if (wordList[i] == endWord)
-                end = i;
-        int ans = INT_MAX;
-        queue<int> q;
-        q.push(n);
-        vector<int> visi(wordList.size(), -1);
-        visi[n] = 0;
-        while (!q.empty())
-        {
-            bool l = 0;
-            int node = q.front();
-            q.pop();
-            for (int j = 0; j < adj[node].size(); j++)
-            {
-                if (visi[adj[node][j]] == -1)
-                    q.push(adj[node][j]), visi[adj[node][j]] = visi[node] + 1;
-                if (adj[node][j] == end)
-                {
-                    ans = min(ans, visi[adj[node][j]]);
-                    break;
-                    l = 1;
-                }
-            }
-
-            if (l == 1)
-                break;
-        }
-
-        if (ans == INT_MAX)
-            return 0;
-        else
-            return ans + 1;
+            return false;
     }
 };
