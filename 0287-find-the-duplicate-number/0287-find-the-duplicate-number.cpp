@@ -7,10 +7,10 @@ public:
             int i=0;
             while(arr[i]==0)
             {
-                    // cout<<i<<" ";
+                    cout<<i<<" ";
                     arr[i]=1;
                     i=nums[i];
-                    // cout<<"|"<<i<<" ";
+                    cout<<"|"<<i<<" ";
                     
             }
            
