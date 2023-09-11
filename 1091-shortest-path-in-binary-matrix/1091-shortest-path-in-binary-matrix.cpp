@@ -9,6 +9,8 @@ public:
     }
     
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
+        if(grid.size()==1 && grid[0][0]==0)
+            return 1;
         int n = grid.size()-1, m = grid[0].size()-1;
         if (grid[0][0] || grid[n][m]) 
             return -1;
@@ -38,7 +40,7 @@ public:
                 }
             }
         }
-        return grid[n][m] ? grid[n][m] : -1;
+        return -1;
     }
     
 private:
