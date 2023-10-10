@@ -1,35 +1,28 @@
-class Solution {
+class Solution
+{
 public:
-    vector<vector<int>> threeSum(vector<int>& nums) {
-         sort(nums.begin() , nums.end());    
-        if(nums.size() < 3)              
-            return {};
-        if(nums[0] > 0)                    // Base Case 2
-            return {};
-        
-        unordered_map<int , int> mp;
-        for(int i = 0 ; i < nums.size() ; ++i)
-            mp[nums[i]] = i;
-        
-        vector<vector<int>> answer;
-        
-        for(int i = 0 ; i < nums.size() - 2 ; ++i)
-        {     
-            if(nums[i] > 0)     break;
-            
-            for(int j = i + 1 ; j < nums.size() - 1 ; ++j)
-            {     
-                int required = -1*(nums[i] + nums[j]);    
-                if(mp.count(required) && mp[required] > j)
-                    answer.push_back({nums[i] , nums[j] , required});
-                
-                j = mp[nums[j]]; 
+     vector<vector<int>> threeSum(vector<int>& nums) {
+        int n = nums.size();
+        sort(nums.begin(), nums.end());
+        vector<vector<int>> output;
+        for(int i=0; i<n-1; i++){
+            int low = i+1, high = n-1;
+            while(low < high){
+                if(nums[i] + nums[low] + nums[high] < 0){
+                    low++;
+                }
+                else if(nums[i] + nums[low] + nums[high] > 0){
+                    high--;
+                }
+                else{
+                    output.push_back({nums[i], nums[low], nums[high]});
+                    int tempIndex1 = low, tempIndex2 = high;
+                    while(low < high && nums[low] == nums[tempIndex1]) low++;
+                    while(low < high && nums[high] == nums[tempIndex2]) high--;
+                }
             }
-            i = mp[nums[i]];     //Update i to last occurence of 1st fixed number to avoid duplicate triplets.
+            while(i+1 < n && nums[i] == nums[i+1]) i++;
         }
-        return answer;  //Return answer vector
+        return output;
     }
 };
-// -1,0,1,2,-1,-4
-// -4,-1,-1,0,1,2
-// 
